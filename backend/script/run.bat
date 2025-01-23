@@ -1,3 +1,3 @@
 @ECHO OFF
 
-python src\main.py
+venv\Scripts\activate.bat && python src\main.py
