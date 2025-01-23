@@ -1,15 +1,15 @@
 # FullStack
 Test repository for learning how to make a full stack web application.
 
-### Prerequisites
-- NodeJS &rightarrow; Run `winget install OpenJS.NodeJS`.
-- Python &rightarrow; Run `winget install --id Python.Python.3.10`.
-
 ## Setup
 Where `[EXECUTE_DESIRED_SCRIPT]` is used, choose based on the following:
 - Use `bat` for Command Prompt or PowerShell.
 - Use `ps1` for PowerShell.
 - Use `sh` for Bash.
+
+### Prerequisites
+- NodeJS &rightarrow; Run `winget install OpenJS.NodeJS`.
+- Python &rightarrow; Run `winget install --id Python.Python.3.10`.
 
 ### Installation
 1. Clone the repository.
