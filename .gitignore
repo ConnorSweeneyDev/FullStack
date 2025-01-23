@@ -23,5 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# Python Virtual Environment
+# Python Bytecode and Environment
+__pycache__/
 venv/
+
+# Database
+*.db
