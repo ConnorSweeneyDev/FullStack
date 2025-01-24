@@ -1,4 +1,4 @@
-from config import db
+from src.prog.config import db
 
 
 class Contact(db.Model):
