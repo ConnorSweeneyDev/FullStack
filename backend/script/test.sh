@@ -5,4 +5,3 @@ else
   source venv/bin/activate
   python3 -m src.test.main
 fi
-read -s -t 3 -n 3 key
