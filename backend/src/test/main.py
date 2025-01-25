@@ -1,6 +1,6 @@
 from src.prog.config import app, db
 from src.prog.models import Contact
-from src.prog.main import *
+from src.prog.routes import *
 import unittest
 import json
 
