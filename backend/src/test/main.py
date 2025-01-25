@@ -12,11 +12,18 @@ class TestMain(unittest.TestCase):
         with app.app_context():
             db.drop_all()
             db.create_all()
-        self.assertEqual(app.debug, False)
+        self.assertEqual(app.config["TESTING"], True)
+
+    def tearDown(self):
+        with app.app_context():
+            db.drop_all()
 
     def test_get_contacts(self):
-        contact1 = Contact("John", "Doe", "john@example.com")
-        contact2 = Contact("Jane", "Deer", "jane@example.com")
+        first_names = ["John", "Jane"]
+        last_names = ["Doe", "Deer"]
+        emails = ["john@example.com", "jane@example.com"]
+        contact1 = Contact(first_names[0], last_names[0], emails[0])
+        contact2 = Contact(first_names[1], last_names[1], emails[1])
         with app.app_context():
             db.session.add(contact1)
             db.session.add(contact2)
@@ -25,7 +32,14 @@ class TestMain(unittest.TestCase):
         response = self.api.get("/contacts")
         self.assertEqual(response.status_code, 200)
         response_data = json.loads(response.data)
+
         self.assertEqual(len(response_data["contacts"]), 2)
+        self.assertEqual(response_data["contacts"][0]["firstName"], first_names[0])
+        self.assertEqual(response_data["contacts"][0]["lastName"], last_names[0])
+        self.assertEqual(response_data["contacts"][0]["email"], emails[0])
+        self.assertEqual(response_data["contacts"][1]["firstName"], first_names[1])
+        self.assertEqual(response_data["contacts"][1]["lastName"], last_names[1])
+        self.assertEqual(response_data["contacts"][1]["email"], emails[1])
 
 
 if __name__ == "__main__":
